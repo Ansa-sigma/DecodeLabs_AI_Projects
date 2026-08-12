@@ -24,19 +24,19 @@ CampusRide operates as a stateful, rule-based conversational interface capable o
 ## 5. 📄 Automated Conversation Audit Logger
  * Automatically captures all student queries, forms submitted, and system responses with precise timestamps into an audit log file (carpool_chat_history.log).
 ## 🔄 Operational Workflow
-1. Student Input Ingestion**
+1. Student Input Ingestion
    └── Student sends a query or command (e.g., `routes`, `offer`, `safety`, or `1`).
 
-2. Intent Normalization & Keyword Matching**
+2. Intent Normalization & Keyword Matching
    └── Text is cleaned (lowercased/trimmed) and mapped to system intents or active states.
 
-3. Interactive Module Execution**
+3. Interactive Module Execution
    ├── **Route Discovery**: Displays available rides and prompts for Route ID selection.
    ├── **Seat Booking**: Collects passenger details, confirms reservation, and shows receipt.
    ├── **Offer a Ride**: Prompts driver form and dynamically appends new route to live database.
    └── **Safety & Policy**: Responds with Student ID verification and tracking standards.
 
-4. Audit Logging & State Update**
+4. Audit Logging & State Update
    └── Interaction details and timestamps are appended to `carpool_chat_history.log`.
 
 ## 📊 Interaction Summary & Use Cases
