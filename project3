@@ -1,0 +1,33 @@
+Project 3: Content-Based AI Recommendation Engine
+
+📌 Executive Summary
+
+Matching user preferences with complex item catalogs or domain roles requires precise pattern alignment rather than arbitrary suggestions. Project 3: AI Recommendation Logic delivers a production-ready Content-Based Filtering Engine designed for personalized recommendation workflows. The system maps raw user skills and domain interests into continuous numerical vector spaces using Term Frequency-Inverse Document Frequency (TF-IDF) and evaluates vector proximity via Cosine Similarity scoring. The architecture is wrapped in an interactive Streamlit Web Interface to provide real-time user ingestion and dynamic feature matching.
+
+🏗️ System Architecture & Algorithmic Pipeline
+
+The core engine executes a 4-stage data processing pipeline:
+
+Stage 1 — Multi-Attribute Input Ingestion: Captures high-dimensional user state (skills, domains, and technical interests) via interactive input controls and aggregates individual attribute strings into a unified text document space.
+Stage 2 — Feature Extraction & Vector Mapping (TF-IDF): Raw textual descriptions cannot be directly processed by numerical algorithms. Applies TF-IDF vectorization to construct a vocabulary dictionary and transform text into continuous sparse vectors. Term Frequency (TF) measures keyword occurrence, while Inverse Document Frequency (IDF) scales down ubiquitous stop words while amplifying domain-specific keywords.
+Stage 3 — Similarity Scoring Engine (Cosine Distance): Computes vector space proximity between the transformed User Preference Vector and stored Item Profile Vectors using Cosine Distance. It measures the directional alignment between features in high-dimensional space, returning normalized similarity scores bounded between 0% and 100%.
+Stage 4 — Ranking, Truncation & UI Rendering: Implements a deterministic sorting pipeline to arrange computed match scores in descending order and truncates results to display the top highest confidence items alongside matched feature keyphrases.
+🛠️ Tech Stack & Domain Expertise
+
+Language: Python 3.x
+Machine Learning & NLP: Scikit-Learn (TF-IDF Vectorization, Cosine Similarity Engine)
+Data Processing: Pandas, NumPy
+GUI / Interactive Layer: Streamlit Framework
+📊 Output Validation & Verification
+
+The application was validated using real-time user skill profiles on the live Streamlit interface:
+
+Tested User Profile: Python, Machine Learning, Data
+System Match Confidence Outputs:
+Data Scientist: 63.46% Match Score (Matched Attributes: python, machine learning, data analysis, pandas, SQL)
+AI/ML Engineer: 48.87% Match Score (Matched Attributes: python, deep learning, tensors, optimization)
+📁 Repository Artifacts Guide
+
+content_based_AI_recommendation.py — Core recommendation logic integrated with the interactive Web UI application.
+PROJRCT3_OUTPUT RECORDDING.mov — Video artifact demonstrating live multi-attribute ingestion, vector computation, and real-time output ranking generation.
+OUTPUT OF PROJRCT3.png — Verification image capturing match confidence scores and UI result cards.
