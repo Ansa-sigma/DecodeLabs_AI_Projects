@@ -1,4 +1,4 @@
-1. AI Data Classification Project (Iris Dataset)
+# 1. AI Data Classification Project (Iris Dataset)
 📌 Project Overview & Problem Statement
 Manual rules ya hardcoded if-else conditions likhna complex datasets ke liye impossible hota hai. Jab hamare paas multi-dimensional data hota hai (jaise phoolon ki alag-alag length aur width), toh human intelligence ke zariye exact boundaries set karna mushkil ho jata hai.
 Is project ka goal Machine Learning ke Supervised Learning approach ko use karke ek automated predictive model banana hai jo historical data se pattern seekh kar naye samples ko sahi category me divide kar sake.
