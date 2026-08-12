@@ -1,67 +1,95 @@
-# 1. AI Data Classification Project (Iris Dataset)
-📌 Project Overview & Problem Statement
-Manual rules ya hardcoded if-else conditions likhna complex datasets ke liye impossible hota hai. Jab hamare paas multi-dimensional data hota hai (jaise phoolon ki alag-alag length aur width), toh human intelligence ke zariye exact boundaries set karna mushkil ho jata hai.
-Is project ka goal Machine Learning ke Supervised Learning approach ko use karke ek automated predictive model banana hai jo historical data se pattern seekh kar naye samples ko sahi category me divide kar sake.
-💡 Solution & Technical Workflow
-Is problem ko solve karne ke liye humne ek Decision Tree Classification Model banaya hai. Ye workflow 4 main steps me kaam karta hai:
- * Data Ingestion: Scikit-Learn library se Iris dataset ko direct memory me load kiya gaya hai.
- * Train-Test Split: Dataset ko 80% Training Set aur 20% Testing Set me baanta gaya hai.
- * Model Training: Decision Tree Algorithm ka use karke model ko train kiya gaya hai.
- * Evaluation: Trained model ki Accuracy Score aur Classification Metrics calculate ki gayi hain.
-⚙️ Step 1: Environment Setup & Library Installation
-Project ko run karne ke liye sabse pehle zaroori Python libraries install karni hoti hain.
-Installation Command:
+## Project 1: CampusRide — Student Carpool Assistant CHATBOT 
+# 📌 Executive Summary
+CampusRide is a specialized, dual-role interactive terminal application designed to resolve daily commuting challenges for university students across Narowal, Shakargarh, and surrounding campus regions. Developed as part of the DecodeLabs Artificial Intelligence Internship Track (Project 1), the system connects student drivers and student passengers to facilitate automated route discovery, dynamic ride offering, structured seat booking, and conversation audit logging.
+# 🎯 Problem Statement
+University students face daily commuting obstacles, including rising fuel expenses, limited campus parking availability, and uncoordinated public transit schedules. While peer-to-peer carpooling offers an ideal solution, existing manual coordination lacks:
+ * Dynamic Ride Offering: A structured method for student drivers to offer empty seats on the go.
+ * Transparent Route Information: Clear visibility into fares, pickup stops, driver ratings, and credentials.
+ * Safety & Verification Standards: Transparent verification protocols such as Student ID authentication, live GPS tracking, and SOS preparedness.
+ * Audit & Activity Tracking: Maintaining a continuous interaction history for system optimization and security audit trails.
+💡 System Architecture & Core Functional Modules
+CampusRide operates as a stateful, rule-based conversational interface capable of managing dynamic runtime memory and multi-step interactive workflows:
+1. 🚏 Dynamic Route Database & Discovery
+ * Pre-configured with major student transit corridors (e.g., Shakargarh ➔ Campus, Narowal City ➔ Campus, Zafarwal ➔ Campus, Local Hostels Express).
+ * Displays active route listings complete with driver department info, fare per seat, departure timings, and verified safety badges.
+# 2. 🚗 Driver Module ("Offer a Ride")
+ * Allows student drivers to publish new carpool options dynamically during runtime.
+ * Interactively prompts drivers for essential credentials: Full Name, Department/Roll No, Contact/WhatsApp Number, Vehicle Details, Pickup Area, Destination, Fare, and Departure Time.
+ * Automatically assigns a unique Route ID and integrates the newly offered ride into the active live database without needing a program restart.
+ # 3. 📝 Passenger Module ("Book a Ride")
+ * Supports interactive route detail inspection (fare breakdown, specific pickup stops, driver ratings, and vehicle safety info).
+ * Implements a state-managed booking flow that collects passenger details and issues an instant seat reservation confirmation.
+# 4. 🛡️ Campus Safety Policy Engine
+ * Enforces campus-only safety standards, including mandatory official Student ID authentication, peer rating visibility, and live GPS readiness.
+# 5. 📄 Automated Conversation Audit Logger
+ * Automatically captures all student queries, forms submitted, and system responses with precise timestamps into an audit log file (carpool_chat_history.log).
+# 🔄 Operational Workflow
+                        ┌─────────────────────────────────┐
+                        │     Student Interactive Input   │
+                        └────────────────┬────────────────┘
+                                         │
+                                         ▼
+                        ┌─────────────────────────────────┐
+                        │  Intent & Keywords Normalizer   │
+                        └────────────────┬────────────────┘
+                                         │
+         ┌───────────────────────────────┼───────────────────────────────┐
+         │                               │                               │
+         ▼                               ▼                               ▼
+┌──────────────────┐           ┌──────────────────┐           ┌──────────────────┐
+│  View & Inspect  │           │   Offer a Ride   │           │   Safety Policy  │
+│   Campus Routes  │           │  (Driver Module) │           │    & Inquiries   │
+└────────┬─────────┘           └────────┬─────────┘           └────────┬─────────┘
+         │                               │                               │
+         ▼                               ▼                               ▼
+┌──────────────────┐           ┌──────────────────┐           ┌──────────────────┐
+│ Interactive Seat │           │ Append New Route │           │ Contextual Bot   │
+│ Booking Workflow │           │ to Live Database │           │ Keyword Response │
+└────────┬─────────┘           └────────┬─────────┘           └────────┬─────────┘
+         │                               │                               │
+         └───────────────────────────────┼───────────────────────────────┘
+                                         │
+                                         ▼
+                        ┌─────────────────────────────────┐
+                        │  File Activity Logger (.log)    │
+                        └─────────────────────────────────┘
+
+📊 Interaction Summary & Use Cases
+# | Interaction Domain | Primary System Function | Workflow Executed |
+|---|---|---|
+| Route Discovery | Lists available student rides | Parses route database and displays options with driver names and fares. |
+| Driver Registration | Dynamic ride publishing | Prompts driver form, collects ride attributes, and dynamically updates database. |
+| Passenger Booking | Seat reservation | Captures student ID and pickup spot, then returns confirmed booking receipt. |
+| Safety Inquiries | Security policy verification | Explains campus verification, driver ratings, GPS tracking, and SOS features. |
+| Audit Logging | Historical record generation | Appends timestamped inputs and responses to carpool_chat_history.log. |
+Developed by Ansa for DecodeLabs Artificial Intelligence Internship Track (Batch 2026) 
+
+
+## Project 2: Machine Learning Data Classification Engine using AI 
+# 📌 Project Overview & Problem Statement
+Writing manual rules or hardcoded conditional statements (if-else blocks) becomes virtually impossible when dealing with complex, multi-dimensional datasets. When working with feature vectors—such as varying sepal and petal measurements in floral species—human analysis struggles to establish precise decision boundaries.
+The primary objective of this project is to build an automated predictive pipeline using a Supervised Machine Learning approach. The model learns underlying feature patterns from historical training data to accurately categorize unseen samples into their respective target classes.
+# 💡 Solution & Technical Workflow
+To tackle this classification problem, a Decision Tree Classifier model was constructed. The end-to-end Machine Learning pipeline is executed in four main stages:
+ * Data Ingestion: The standard Iris Dataset is loaded into memory directly via Scikit-Learn.
+ * Train-Test Split: The dataset is partitioned into an 80% Training Set and a 20% Testing Set to ensure unbiased evaluation.
+ * Model Training: A Decision Tree Algorithm is fitted on the training features and target labels.
+ * Model Evaluation: The performance is validated on the unseen test set using Accuracy Score and Classification Metrics.
+⚙️ Environment Setup & Dependencies
+To execute this machine learning pipeline, the required Python packages can be installed using pip:
 pip3 install pandas scikit-learn
-Explanation:
- * pandas: Data ko tabular form (dataframe) me handle aur view karne ke liye.
- * scikit-learn: Iris dataset load karne, train-test split karne aur Decision Tree classification algorithm run karne ke liye.
-💻 Step 2: Main Python Source Code
-Yeh hamari main Python file (week2_classification.py) ka source code hai:
-import pandas as pd
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score, classification_report
- # 1. Dataset Load karna
-print("--- Step 1: Loading Dataset ---")
-iris = load_iris()
-X = iris.data  # Features (Sepal/Petal Length & Width)
-y = iris.target  # Labels (Setosa, Versicolor, Virginica)
-df = pd.DataFrame(X, columns=iris.feature_names)
-df['target'] = y
-print("Dataset Head:")
-print(df.head())
 
-# 2. Data ko Train aur Test sets me Split karna
-print("\n--- Step 2: Splitting Data ---")
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42
-)
-print(f"Training Samples: {len(X_train)}, Testing Samples: {len(X_test)}")
-
-# 3. Decision Tree Model Train karna
-print("\n--- Step 3: Training the Classification Model ---")
-model = DecisionTreeClassifier(random_state=42)
-model.fit(X_train, y_train)
-
-# 4. Model Evaluation & Prediction
-print("\n--- Step 4: Model Evaluation ---")
-y_pred = model.predict(X_test)
-accuracy = accuracy_score(y_test, y_pred)
-print(f"Model Accuracy: {accuracy * 100:.2f}%")
-print("\nClassification Report:")
-print(classification_report(y_test, y_pred, target_names=iris.target_names))
-
-Code Explanation:
- * load_iris(): Scikit-Learn ke andar built-in dataset ko load karta hai.
- * train_test_split(): Data ko 80% training data aur 20% testing data me divide karta hai.
- * DecisionTreeClassifier(): Algorithm create karta hai jo decision boundaries banata hai.
- * fit(): Training data se model ko pattern sikhata hai.
- * predict(): Testing data ke upar predictions nikalta hai.
-📊 Step 3: Execution & Output Results
-Code ko run karne ke liye terminal me yeh command chalayein:
-python3 week2_classification.py
-
+# Dependency Breakdown:
+ * pandas: Used for data manipulation, structured DataFrame representation, and viewing dataset heads.
+ * scikit-learn: Provides built-in dataset utilities, train-test splitting modules, decision tree estimators, and evaluation metrics.
+# 💻 Technical Implementation Details
+The underlying source code (Project2_Dataclassification.py) executes the following operations:
+ * load_iris(): Ingests the benchmark dataset containing 150 samples across 4 physical features.
+ * train_test_split(): Splits 120 samples into training vectors and isolates 30 samples for model testing (test_size=0.2).
+ * DecisionTreeClassifier(): Initializes the supervised tree algorithm to learn non-linear decision boundaries.
+ * fit(): Trains the decision tree model on feature patterns.
+ * predict(): Evaluates model generalizations against unseen testing feature sets.
+# 📊 Performance Evaluation & Execution Output
 Terminal Output:
 --- Step 1: Loading Dataset ---
 Dataset Head:
@@ -84,7 +112,7 @@ Classification Report:
   versicolor       1.00      1.00      1.00         9
    virginica       1.00      1.00      1.00        11
 
-Output Explanation:
- * Accuracy (100%): Model ne test dataset ke saare 30 samples ko bilkul correct classify kiya hai.
- * Precision / Recall / F1-Score: Saari 3 species (setosa, versicolor, virginica) par 1.00 score yeh show karta hai ki model me 0% error margin hai.
-Developed for DecodeLabs AI Industrial Internship (Batch 2026) 
+# Metrics Analysis:
+ * Accuracy (100.00%): The model correctly identified all 30 unseen test samples without a single misclassification.
+ * Precision / Recall / F1-Score: Reached perfect 1.00 scores across all target species (setosa, versicolor, virginica), demonstrating a 0% error rate on the evaluation set.
+Developed by Ansa for DecodeLabs Artificial Intelligence Internship Track (Batch 2026) 🚀
